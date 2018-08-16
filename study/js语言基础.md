@@ -68,7 +68,8 @@ postInfo({ money: this.ransomeMoney })
 ## js方法
 
 ### split(separator,howmany)方法分隔字符串，第一个参数是以何种方式分割字符串，第二个参数指定返回数组的最大长度
-```
+
+```js
 split('')使用空字符串会分割字符串中每一个字符
 
 例：
@@ -80,7 +81,8 @@ str.split(' '),结果为 ["how", "are", "you"]
 ```
 
 ### object.keys()遍历一个对象，返回一个由一个给定对象的自身可枚举属性组成的数组。
-```
+
+```js
 /*Array对象*/
 let arr = ['a', 'b', 'c']
 console.log(object.keys(arr))
@@ -101,7 +103,7 @@ console.log(object.keys(obj))
 ```
 ### every()方法用于检测数组所有元素是否都符合指定条件（通过函数提供），结果是一个逻辑值，如果有一个元素不满足，则整个表达式返回false，且剩余的元素不会再进行检测。
 
-```
+```js
 var ages = [11,12,13,14]
 function checkAdult(age) {
   return age >= 12
@@ -112,7 +114,8 @@ age.every(checkAdult)
 
 
 ### some()方法用于检测数组中的元素是否满足指定条件，结果是一个逻辑值，如果有一个元素满足条件，则返回true，剩余元素不会再进行检测。即判断数组中是否有符合条件的元素，只要有一个就返回true，与every相反
-```
+
+```js
 var ages = [11,12,13,14]
 function checkAdult(age) {
   return age >= 12
@@ -124,14 +127,16 @@ age.every(checkAdult)
 ### findIndex()返回数组中第一个符合条件的元素的index值，当数组中元素在测试条件返回true时，findIndex()会返回符合条件的元素的索引位置，之后的值不会再调用执行函数。没有符合条件的就返回-1
 
 ### js使用parseInt进制转换
-```
+
+```js
 *parseInt("")内参数如果以0开头，会默认转变八进制，想正常解析要有解析字符串后加一个参数
 parseInt("08",10) => 8,意为把十进制数值08转换为十进制数值为8
 parseInt("11",8) => 9，意为把八进制数值11转换为十进制数值9
 
 ```
 ### 使用Date.parse判断两个日期大小
-```
+
+```js
  if (
         this.startDate != undefined &&
         this.endDate != undefined &&
@@ -147,8 +152,29 @@ parseInt("11",8) => 9，意为把八进制数值11转换为十进制数值9
 ```
 
 ### 正则表达式验证手机号、电话、邮箱
-```
+
+```js
   let mbTest = /^1[3|4|5|7|8][0-9]\d{4,8}$/;
   let fixTest = /^0\d{2,3}-?\d{7,8}$/;
   let mailTest = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+```
+
+### 根据url中的token值判断用户是否登录
+
+```js
+// 从当前url中取出token，如果token存在就存到localstorage中，如果不存在就弹出登录框
+  var tokenUrl = location.search
+  var reg = /[\?\&]token=[0-9a-zA-Z]+$/
+  if (tokenUrl !== '') {
+    if (reg.test(tokenUrl)) {
+      var token = tokenUrl.split('=')[1]
+      localStorage.setItem('token', token)
+      console.log(token)
+    } else {
+      $('.login-main').css('display', 'block')
+    }
+  } else {
+    $('.login-main').css('display', 'block')
+  }
+  
 ```

@@ -139,3 +139,12 @@ indows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执�
 ```
 $ git config --global core.autocrlf false  //禁用自动转换 
 ```
+
+## git push 时提示  ! [rejected]        master -> master (fetch first)
+
+在git push远程服务器时出现此错误，原因是没有同步远程的master
+
+```js
+git pull origin master
+git push origin master
+```
