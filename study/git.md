@@ -148,3 +148,6 @@ $ git config --global core.autocrlf false  //禁用自动转换
 git pull origin master
 git push origin master
 ```
+
+
+### git merge  合并分支
